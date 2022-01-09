@@ -69,3 +69,13 @@ print(f"O'Tooley: {Otooley_percent} ({Otooley_Votes})")
 print("---------------------")
 print("Winner:", Election_Winner)
 print("---------------------")
+
+output_file=os.path.join("Analysis","election_results.csv")
+
+with open(output_file, "w") as csvfile:
+
+    csvwriter = csv.writer(csvfile, delmiter=',')
+
+    csvwriter.writerow(['Candidate', 'Percent of Votes', 'Total Votes'])
+
+    csvwriter.writerows()
