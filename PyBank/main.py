@@ -2,12 +2,12 @@ import os
 
 import csv
 
-budget_datacsv = os.path.join('PyBank','Resources', 'budget_data.csv')
+budget_csv = os.path.join('PyBank','Resources', 'budget_data.csv')
 
 months=[]
 profit_loss=[]
 
-with open(budget_datacsv) as csvfile:
+with open(budget_csv) as csvfile:
     csvreader= csv.reader(csvfile, delimiter=',')
     csv_header = next(csvreader)
 
@@ -39,5 +39,5 @@ print("--------------------------")
 print(f"Total Months: {total_months}")
 print(f'Total: ${total_profits}')
 print(f'Average_change: ${average_change:.2f}')
-print(f'Greatest Increase in Profits: {greatest_increase_month} $({greatest_increase})')
-print(f'Greatest Decrease in Profits: {greatest_decrease_month} $({greatest_decrease})')
+print(f'Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase})')
+print(f'Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease})')
