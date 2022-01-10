@@ -2,12 +2,13 @@ import os
 
 import csv
 
-budget_csv = os.path.join('PyBank','Resources', 'budget_data.csv')
+file_to_load = os.path.join('PyBank','Resources', 'budget_data.csv')
+file_to_output = os.path.join('PyBank', 'Analysis', 'budget_analysis.txt')
 
 months=[]
 profit_loss=[]
 
-with open(budget_csv) as csvfile:
+with open(file_to_load) as csvfile:
     csvreader= csv.reader(csvfile, delimiter=',')
     csv_header = next(csvreader)
 
@@ -34,10 +35,16 @@ greatest_decrease_index = profit_change.index(greatest_decrease)
 greatest_increase_month = months[greatest_increase_index + 1]
 greatest_decrease_month = months[greatest_decrease_index + 1]
 
-print("Financial Analysis")
-print("--------------------------")
-print(f"Total Months: {total_months}")
-print(f'Total: ${total_profits}')
-print(f'Average_change: ${average_change:.2f}')
-print(f'Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase})')
-print(f'Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease})')
+output = (
+    f"\nFinancial Analysis\n"
+    f"--------------------------\n"
+    f"Total Months: {total_months}\n"
+    f"Total: ${total_profits}\n"
+    f"Average_change: ${average_change:.2f}\n"
+    f"Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase})\n"
+    f"Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease})\n")
+
+print(output)
+
+with open(file_to_output, "w") as txt_file:
+    txt_file.write(output)
