@@ -2,8 +2,8 @@ import os
 
 import csv
 
-election_csv= os.path.join("Resources","election_data.csv")
-output_file=os.path.join("Analysis","election-analysis.txt")
+election_csv= os.path.join("PyPoll","Resources","election_data.csv")
+file_to_output=os.path.join("PyPoll","Analysis","election-analysis.txt")
 
 
 Khan = []
@@ -58,24 +58,21 @@ elif Otooley_Votes > Correy_Votes and Otooley_Votes > Li_Votes and Otooley_Votes
 else:
     Election_Winner = "Nobody"
 
-print("Election Results")
-print("---------------------")
-print("Total Votes:"+ str(Total_Votes))
-print("---------------------")
-print(f"Khan: {Khan_percent} ({Khan_Votes})")
-print(f"Li: {Li_percent} ({Li_Votes})")
-print(f"Correy: {Correy_percent} ({Correy_Votes})")
-print(f"O'Tooley: {Otooley_percent} ({Otooley_Votes})")
-print("---------------------")
-print("Winner:", Election_Winner)
-print("---------------------")
 
-output_file=os.path.join("Analysis","election_results.csv")
+output = (
+    f"Election Results\n"
+    f"---------------------\n"
+    f"Total Votes: {str(Total_Votes)}\n"
+    f"---------------------\n"
+    f"Khan: {Khan_percent} ({Khan_Votes})\n"
+    f"Li: {Li_percent} ({Li_Votes})\n"
+    f"Correy: {Correy_percent} ({Correy_Votes})\n"
+    f"O'Tooley: {Otooley_percent} ({Otooley_Votes})\n"
+    f"---------------------\n"
+    f"Winner: {Election_Winner}\n"
+    f"---------------------\n")
 
-with open(output_file, "w") as csvfile:
+print(output)
 
-    csvwriter = csv.writer(csvfile, delmiter=',')
-
-    csvwriter.writerow(['Candidate', 'Percent of Votes', 'Total Votes'])
-
-    csvwriter.writerows()
+with open(file_to_output, "w") as txt_file:
+    txt_file.write(output)
