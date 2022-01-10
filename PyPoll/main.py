@@ -3,7 +3,7 @@ import os
 import csv
 
 election_csv= os.path.join("Resources","election_data.csv")
-output_file=os.path.join("analysis","election-analysis.txt")
+output_file=os.path.join("Analysis","election-analysis.txt")
 
 
 Khan = []
