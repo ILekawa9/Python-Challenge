@@ -28,7 +28,7 @@ with open(election_csv) as csvfile:
         
         if row[2] == "O'Tooley":
             OTooley.append(1)
-        
+       
     
 Total_Votes= int(len(Khan)+len(Correy)+len(Li)+len(OTooley))
 
