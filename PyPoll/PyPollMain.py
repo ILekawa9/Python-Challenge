@@ -2,8 +2,8 @@ import os
 
 import csv
 
-election_csv= os.path.join("PyPoll","Resources","election_data.csv")
-file_to_output=os.path.join("PyPoll","Analysis","election-analysis.txt")
+election_csv= os.path.join("Resources","election_data.csv")
+file_to_output=os.path.join("Analysis","election-analysis.txt")
 
 
 Khan = []
